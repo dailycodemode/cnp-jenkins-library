@@ -179,7 +179,7 @@ EOF
       prepend += ' '
     }
     addInitScript()
-    steps.sh("${prepend}./gradlew --no-daemon --init-script init.gradle ${task}")
+    steps.sh("${prepend}./gradlew --no-daemon --init-script init.gradle --info ${task}")
   }
 
   private String gradleWithOutput(String task) {
