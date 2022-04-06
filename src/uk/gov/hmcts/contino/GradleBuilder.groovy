@@ -184,7 +184,7 @@ EOF
 
   private String gradleWithOutput(String task) {
     addInitScript()
-    steps.sh(script: "./gradlew --no-daemon --init-script init.gradle ${task}", returnStdout: true).trim()
+    steps.sh(script: "./gradlew --no-daemon --init-script init.gradle --info ${task}", returnStdout: true).trim()
   }
 
   def fullFunctionalTest() {
