@@ -15,18 +15,18 @@ import uk.gov.hmcts.pipeline.AKSSubscriptions
 import uk.gov.hmcts.pipeline.TeamConfig
 
 def call(type, String product, String component, Closure body) {
-
+  println(1)
   def branch = new ProjectBranch(env.BRANCH_NAME)
-
+  println(2)
   def deploymentNamespace = branch.deploymentNamespace()
   def deploymentProduct = deploymentNamespace ? "$deploymentNamespace-$product" : product
-
+  println(3)
   def pipelineTypes = [
     java  : new SpringBootPipelineType(this, deploymentProduct, component),
     nodejs: new NodePipelineType(this, deploymentProduct, component),
     angular: new AngularPipelineType(this, deploymentProduct, component)
   ]
-
+  println(4)
   Subscription subscription = new Subscription(env)
   AKSSubscriptions aksSubscriptions = new AKSSubscriptions(this)
 
